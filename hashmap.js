@@ -18,10 +18,37 @@ class HashMap {
         return hashCode;
     }
 
+    checkCapacity() {
+
+        let fullBuckets = 0;
+        for (const bucket of this.buckets) {
+            if (bucket !== null) {
+                fullBuckets += 1;
+            } 
+        }
+
+        if (fullBuckets / this.buckets.length >= this.growthFactor) {
+            return true;
+        } else {
+            return false 
+        }
+
+    }
+
+    increaseBuckets() {
+        const oldBuckets = this.buckets;
+        this.buckets = new Array(oldBuckets.length * 1.5).fill(null);
+        for (const node of oldBuckets) {
+            if (node !== null) {
+                this.set(node.key, node.value)
+            }
+        }
+    }
+
     set(key, value) {
 
         //check if key already exists 
-        const index = this.hash(key) % 16; 
+        const index = this.hash(key) % this.buckets.length; 
 
         if (this.buckets[index] !== null) {
             this.buckets[index].value = value;

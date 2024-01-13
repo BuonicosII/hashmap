@@ -4,6 +4,6 @@ const someHashMap = new HashMap();
 
 someHashMap.set("Name", "Enrico");
 
-someHashMap.set("Name", "Viola")
+someHashMap.set("AnotherName", "Viola")
 
-console.log(someHashMap.buckets)
+console.log(someHashMap.buckets, someHashMap.increaseBuckets(), someHashMap.buckets)
