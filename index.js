@@ -3,7 +3,9 @@ import { HashMap } from "./hashmap.js"
 const someHashMap = new HashMap();
 
 someHashMap.set("Name", "Enrico");
+console.log(someHashMap.buckets);
 
-someHashMap.set("AnotherName", "Viola")
+someHashMap.set("asdafff", "Enggggrico");
 
-console.log(someHashMap.buckets, someHashMap.increaseBuckets(), someHashMap.buckets)
+someHashMap.set("Surname", "Viola");
+console.log(someHashMap.entries());
